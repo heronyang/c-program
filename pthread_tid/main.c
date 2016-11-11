@@ -26,8 +26,8 @@ int main(int argc, char *argv[]) {
     for(i=0; i<n; i++) {
 
         // it's important to create args for each thread instead of sharing
-		Thread_Args *wa = malloc(sizeof(Thread_Args));
-		wa->tid = i;
+        Thread_Args *wa = malloc(sizeof(Thread_Args));
+        wa->tid = i;
 
         pthread_create(&tids[i], NULL, run_thread, (void *)wa);
 
