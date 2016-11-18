@@ -24,7 +24,7 @@ void print_current_time() {
  * Dummy, hold time
  */
 void limited_worker_can_come_in() {
-    sleep(10);
+    sleep(3);
     print_current_time();
 }
 

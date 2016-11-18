@@ -1,0 +1,4 @@
+#!/bin/bash
+for i in {1..13}; do
+    telnet localhost 8000 > /dev/null 2>&1 &
+done
