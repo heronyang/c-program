@@ -15,7 +15,7 @@ void *run_thread(void *args) {
 
 int main(int argc, char *argv[]) {
 
-    // don't buffer the stdout
+    // print directly
     setbuf(stdout, NULL);
 
     // init
@@ -25,7 +25,6 @@ int main(int argc, char *argv[]) {
     // run
     for(i=0; i<n; i++) {
 
-        // it's important to create args for each thread instead of sharing
         Thread_Args *wa = malloc(sizeof(Thread_Args));
         wa->tid = i;
 
@@ -33,7 +32,7 @@ int main(int argc, char *argv[]) {
 
     }
 
-    // collect result
+    // done
     for(i=0; i<n; i++) {
         pthread_join(tids[i], NULL);
         printf("Thread %d: Done\n", i);
